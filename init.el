@@ -178,12 +178,17 @@
 ;;----------------------------------------------------------------------------
 (require 'init-local nil t)
 
+(require 'package)
+(package-initialize)
 
+;; automatical complete: company
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode); global enable
+(setq company-show-numbers t); display serial number
+(setq company-idle-delay 0.2); menu delay
+(setq company-minimum-prefix-length 1); start completelyness number
 
-(provide 'init)
+;; elpy-- main actor
+(require 'elpy)
+(elpy-enable)
 
-;; Local Variables:
-;; coding: utf-8
-;; no-byte-compile: t
-;; End:
-;;; init.el ends here
